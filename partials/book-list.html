@@ -1,0 +1,40 @@
+<!-- <link rel="stylesheet" href="index.css" />
+<link rel="stylesheet" href="css/bootstrap.min.css" />
+<script src="js/bootstrap.min.js"></script> -->
+<div id="bookListWrapper">
+    <!-- ng-controller="BookListCtrl" -->
+    <form role="form">
+      <div class=" search form-group">
+        <input
+          type="text"
+          class=" search form-control"
+          placeholder="Search here...."
+          ng-model="searchString"
+        >
+      </div>
+      <div class="bookscontainer" >
+        <ul class="list-unstyled">
+          <li class="book" ng-repeat="book in books | filter:searchString">
+            <img class="bookimg" src="{{ book.img }}" alt="books" />
+            <div class="book-details clearfix">
+              <h3>{{ book.name }}</h3>
+              <p class="price">{{ book.price | currency:'Rs.'}}</p>
+              <ul class="list-unstyled list-inline">
+                <li>{{ book.rating }}</li>
+                <li>{{ book.Binding }}</li>
+                <li>{{ book.Publisher }}</li>
+                <li>{{ book.Released }}</li>
+              </ul>
+              <p>{{ book.details }}</p>
+              <button
+                class=" addButton btn btn-primary btn-sm"
+                ng-click="addToCart(book)"
+              >
+                Add to the cart
+              </button>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </form>
+</div>
